@@ -10,12 +10,12 @@ const App = () => {
 
   const [name, setName] = useState('');
   const [page, setPage] = useState(1);
-  const [perPage, setPerPage] = useState(12);
+  // const [perPage, setPerPage] = useState(12);
   const [totalPage, setTotalPage] = useState(null);
   const [arrPictures, setArrPictures] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+  console.log(error);
   
   useEffect(() => {
     let isMounted = true;
@@ -25,8 +25,8 @@ const App = () => {
         
       try {
         setIsLoading(true);
-        const { totalHits, hits, } = await fetchImg(name, page, perPage);
-        const totalP = Math.round(totalHits / perPage);
+        const { totalHits, hits, } = await fetchImg(name, page,);
+        const totalP = Math.round(totalHits / 12);
         const newArr = hits.map(({ id, largeImageURL, webformatURL, }) => {
           return { id, largeImageURL, webformatURL }
         });
@@ -54,7 +54,7 @@ const App = () => {
       }
       fetch();
     };
-  }, [name, page, perPage]);
+  }, [name, page,]);
 
 
   const onSubmit = (nameForm) => {
