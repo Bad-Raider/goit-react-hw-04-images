@@ -10,11 +10,11 @@ const App = () => {
 
   const [name, setName] = useState('');
   const [page, setPage] = useState(1);
-  // const [perPage, setPerPage] = useState(12);
   const [totalPage, setTotalPage] = useState(null);
   const [arrPictures, setArrPictures] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  
   console.log(error);
   
   useEffect(() => {
